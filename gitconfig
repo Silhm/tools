@@ -1,0 +1,34 @@
+[color]
+    ui = true
+[merge]
+    tool = meld
+[alias]
+    amend = commit --amend
+    st = status
+    who = shortlog -sne
+    lg = log --pretty=oneline --abbrev-commit --graph --decorate
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset
+    changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
+    svnpull = svn rebase
+    svnpush = svn dcommit
+    lc = !git oneline ORIG_HEAD.. --stat --no-merges
+    addm = !git-ls-files -m -z | xargs -0 git-add && git status
+    addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
+    rmm = !git ls-files -d -z | xargs -0 git-rm && git status
+    mate = !git-ls-files -m -z | xargs -0 mate
+    mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 mate
+    graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    logtree = log --graph --oneline --decorate --all
+
+    url = config --get remote.origin.url
+    uncommit = reset --soft HEAD^
+    unstage = reset HEAD
+[push]
+    default = current
+[pull]
+    rebase = true
